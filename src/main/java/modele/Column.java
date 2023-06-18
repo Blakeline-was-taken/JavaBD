@@ -62,6 +62,24 @@ public class Column {
     }
 
     /**
+     * Remplace la valeur à l'index spécifié par une nouvelle valeur.
+     *
+     * @param index l'index de la valeur à remplacer
+     * @param value la nouvelle valeur à assigner
+     * @throws IllegalArgumentException si le type de valeur est invalide pour la colonne
+     * @throws IndexOutOfBoundsException si l'index est en dehors des limites de la colonne
+     */
+    public void setValue(int index, Object value) throws IllegalArgumentException, IndexOutOfBoundsException {
+        if (index < 0 || index >= values.size()) {
+            throw new IndexOutOfBoundsException("L'index est en dehors des limites de la colonne.");
+        }
+        if (!type.isInstance(value) && value != null) {
+            throw new IllegalArgumentException("Type de valeur invalide. Attendu : " + type.getSimpleName());
+        }
+        values.set(index, value);
+    }
+
+    /**
      * Ajoute plusieurs valeurs à la colonne.
      *
      * @param values les valeurs à ajouter

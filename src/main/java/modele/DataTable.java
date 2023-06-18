@@ -249,7 +249,13 @@ public class DataTable {
         if (rowIndex < 0 || rowIndex >= getNumberOfRows()) {
             throw new IndexOutOfBoundsException("L'index de ligne spécifié est invalide.");
         }
-        columns.get(columnIndex).removeValue(rowIndex);
+
+        Column column = columns.get(columnIndex);
+        if (rowIndex < column.size() - 1) {
+            column.setValue(rowIndex, null);
+        } else {
+            column.removeValue(rowIndex);
+        }
     }
 
     /**
@@ -328,9 +334,11 @@ public class DataTable {
         for (int i = 0; i < numColumns; i++) {
             int maxColumnWidth = getColumnName(i).length();
             for (Object value : getColumn(i).getValues()) {
-                int cellWidth = value.toString().length();
-                if (cellWidth > maxColumnWidth) {
-                    maxColumnWidth = cellWidth;
+                if (value != null) {
+                    int cellWidth = value.toString().length();
+                    if (cellWidth > maxColumnWidth) {
+                        maxColumnWidth = cellWidth;
+                    }
                 }
             }
             columnWidths[i] = maxColumnWidth;
