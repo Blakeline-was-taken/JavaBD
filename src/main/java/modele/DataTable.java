@@ -190,6 +190,49 @@ public class DataTable {
     }
 
     /**
+     * Modifie le contenu de la cellule à l'index de colonne et l'index de ligne spécifiés.
+     *
+     * @param columnIndex L'index de la colonne de la cellule.
+     * @param rowIndex    L'index de la ligne de la cellule.
+     * @param value       La nouvelle valeur à assigner à la cellule.
+     * @throws IndexOutOfBoundsException Si l'index de colonne ou l'index de ligne spécifié est invalide.
+     * @throws IllegalArgumentException Si le type de valeur est invalide pour la colonne.
+     */
+    public void setCell(int columnIndex, int rowIndex, Object value) throws IndexOutOfBoundsException, IllegalArgumentException {
+        if (columnIndex < 0 || columnIndex >= getNumberOfColumns()) {
+            throw new IndexOutOfBoundsException("L'index de colonne spécifié est invalide.");
+        }
+        if (rowIndex < 0 || rowIndex >= getNumberOfRows()) {
+            throw new IndexOutOfBoundsException("L'index de ligne spécifié est invalide.");
+        }
+
+        Column column = columns.get(columnIndex);
+        Class<?> type = column.getType();
+        if (!type.isInstance(value) && value != null) {
+            throw new IllegalArgumentException("Type de valeur invalide. Attendu : " + type.getSimpleName());
+        }
+
+        column.setValue(rowIndex, value);
+    }
+
+    /**
+     * Modifie le contenu de la cellule dans la colonne spécifiée et à l'index de ligne spécifié.
+     *
+     * @param columnName Le nom de la colonne de la cellule.
+     * @param rowIndex   L'index de la ligne de la cellule.
+     * @param value      La nouvelle valeur à assigner à la cellule.
+     * @throws IllegalArgumentException Si la colonne spécifiée n'existe pas ou si l'index de ligne spécifié est invalide.
+     * @throws IllegalArgumentException Si le type de valeur est invalide pour la colonne.
+     */
+    public void setCell(String columnName, int rowIndex, Object value) throws IllegalArgumentException {
+        int columnIndex = columnNames.indexOf(columnName);
+        if (columnIndex == -1) {
+            throw new IllegalArgumentException("La colonne spécifiée n'existe pas.");
+        }
+        setCell(columnIndex, rowIndex, value);
+    }
+
+    /**
      * Supprime la colonne à l'index spécifié de la table de données.
      *
      * @param index L'index de la colonne à supprimer.
