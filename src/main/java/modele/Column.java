@@ -43,6 +43,30 @@ public class Column {
     }
 
     /**
+     * Ajoute plusieurs valeurs à la colonne.
+     *
+     * @param values les valeurs à ajouter
+     * @throws IllegalArgumentException si le type des valeurs est invalide pour la colonne
+     */
+    public void addValues(Object... values) throws IllegalArgumentException {
+        for (Object val : values){
+            addValue(val);
+        }
+    }
+
+    /**
+     * Ajoute une liste de valeurs à la colonne.
+     *
+     * @param values la liste des valeurs à ajouter
+     * @throws IllegalArgumentException si le type des valeurs est invalide pour la colonne
+     */
+    public void addValues(ArrayList<Object> values) throws IllegalArgumentException {
+        for (Object val : values) {
+            addValue(val);
+        }
+    }
+
+    /**
      * Retourne le nombre de valeurs dans la colonne.
      *
      * @return le nombre de valeurs dans la colonne
