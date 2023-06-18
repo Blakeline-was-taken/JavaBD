@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="feat: Ajout de la méthode addValues à la classe Column">
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" afterDir="false" />
+    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="feat: Ajout des méthodes pour supprimer une ligne/une colonne">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686997433225</updated>
       <workItem from="1686997434759" duration="23370000" />
-      <workItem from="1687102986033" duration="1384000" />
+      <workItem from="1687102986033" duration="2945000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Ajout de la méthode addValues à la classe Column">
       <created>1687105248533</created>
@@ -94,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687105248533</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: Ajout des méthodes pour supprimer une ligne/une colonne">
+      <created>1687106209976</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687106209976</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +110,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Ajout de la méthode addValues à la classe Column" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Ajout de la méthode addValues à la classe Column" />
+    <MESSAGE value="feat: Ajout des méthodes pour supprimer une ligne/une colonne" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Ajout des méthodes pour supprimer une ligne/une colonne" />
   </component>
 </project>

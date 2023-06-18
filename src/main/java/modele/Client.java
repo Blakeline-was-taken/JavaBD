@@ -4,6 +4,10 @@ import java.util.TreeSet;
 
 public class Client {
     public static void main(String[] args) {
+        testRemove();
+    }
+
+    public static void testSelect(){
         DataTable employees = generateEmployees();
         employees.printTable();
         System.out.println();
@@ -61,8 +65,8 @@ public class Client {
         result6.printTable();
     }
 
-    public static DataTable generateJoin(){
-        // Création de la première employees
+    public static void testJoin(){
+        // Création de la première table
         DataTable table1 = new DataTable("Table1");
         table1.addColumn("ID", Integer.class);
         table1.addColumn("Nom", String.class);
@@ -73,7 +77,11 @@ public class Client {
         table1.insertRow(2, "Bob", "Berlin", 30);
         table1.insertRow(3, "Charlie", "Madrid", 35);
 
-        // Création de la deuxième employees
+        // Affichage de la première table
+        table1.printTable();
+        System.out.println();
+
+        // Création de la deuxième table
         DataTable table2 = new DataTable("Table2");
         table2.addColumn("Ville", String.class);
         table2.addColumn("Habitants", Integer.class);
@@ -83,15 +91,83 @@ public class Client {
         table2.insertRow("Berlin", 3500000, "Allemagne");
         table2.insertRow("Londres", 8900000, "Royaume-Uni");
 
+        // Affichage de la deuxième table
+        table2.printTable();
+        System.out.println();
+
         // Join des deux tables
-        return table1.join(table2, "Ville", "Ville");
+        table1.join(table2, "Ville", "Ville").printTable();
+    }
+
+    public static void testRemove() {
+        // Création de la table de données
+        DataTable table = generateEmployees();
+
+        // Affichage de la table avant les suppressions
+        System.out.println("Table avant les suppressions :");
+        table.printTable();
+        System.out.println();
+
+        // Suppression d'une ligne
+        try {
+            System.out.println("Suppression de la ligne d'index 1 :");
+            table.removeRow(1);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la ligne : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Suppression d'un nom de colonne
+        try {
+            System.out.println("Suppression de la colonne \"Age\" :");
+            table.removeColumn("Age");
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la colonne : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Suppression d'un index de colonne
+        try {
+            System.out.println("Suppression de la colonne d'index 1 :");
+            table.removeColumn(1);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la colonne : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Suppression d'une ligne illégale
+        try {
+            System.out.println("Suppression de la ligne d'index 15 :");
+            table.removeRow(15);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la ligne : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Suppression d'une colonne illégale
+        try {
+            System.out.println("Suppression de la colonne d'index -1 :");
+            table.removeColumn(-1);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la colonne : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Affichage de la table après les suppressions
+        System.out.println("Table après les suppressions :");
+        table.printTable();
     }
 
     public static DataTable generateEmployees(){
-        // Création de la employees
+        // Création de la table
         DataTable employees = new DataTable("Employees");
 
-        // Ajout des colonnes à la employees
+        // Ajout des colonnes à la table
         employees.addColumn("ID", Integer.class);
         employees.addColumn("First Name", String.class);
         employees.addColumn("Last Name", String.class);
@@ -108,7 +184,7 @@ public class Client {
         employees.addColumn("Country", String.class);
         employees.addColumn("Has Raise", Boolean.class);
 
-        // Insertion des données dans la employees
+        // Insertion des données dans la table
         employees.insertRow(1, "John", "Doe", 30, "Male", "Manager", "Sales", 5000.00, new Date(1985, 5, 10), "+1 123-456-7890", "john.doe@example.com", "123 Main St", "New York", "USA", true);
         employees.insertRow(2, "Jane", "Smith", 28, "Female", "Supervisor", "Marketing", 4500.00, new Date(1990, 9, 15), "+1 987-654-3210", "jane.smith@example.com", "456 Elm St", "Los Angeles", "USA", false);
         employees.insertRow(3, "Michael", "Johnson", 35, "Male", "Manager", "Finance", 5500.00, new Date(1980, 2, 25), "+1 555-123-4567", "michael.johnson@example.com", "789 Oak St", "Chicago", "USA", true);
@@ -125,7 +201,7 @@ public class Client {
         employees.insertRow(14, "Isabella", "Turner", 29, "Female", "Supervisor", "Marketing", 4400.00, new Date(1992, 8, 23), "+1 333-888-9999", "isabella.turner@example.com", "258 Maple St", "Atlanta", "USA", false);
         employees.insertRow(15, "Andrew", "Adams", 15, "Male", "Analyst", "Finance", 4100.00, new Date(1980, 6, 11), "+1 888-111-2222", "andrew.adams@example.com", "753 Oak St", "Miami", "USA", true);
 
-        // Affichage de la employees
+        // Affichage de la table
         return employees;
     }
 }
