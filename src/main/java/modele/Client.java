@@ -138,6 +138,26 @@ public class Client {
         }
         System.out.println();
 
+        // Suppression d'une cellule par index de colonne et index de ligne
+        try {
+            System.out.println("Suppression de la cellule à la colonne d'index 1 et à la ligne d'index 0 :");
+            table.removeCell(1, 0);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la cellule : " + e.getMessage());
+        }
+        System.out.println();
+
+        // Suppression d'une cellule par nom de colonne et index de ligne
+        try {
+            System.out.println("Suppression de la cellule à la colonne \"Salary\" et à la ligne d'index 4 :");
+            table.removeCell("Salary", 4);
+            table.printTable();
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la suppression de la cellule : " + e.getMessage());
+        }
+        System.out.println();
+
         // Suppression d'une ligne illégale
         try {
             System.out.println("Suppression de la ligne d'index 15 :");
@@ -157,6 +177,8 @@ public class Client {
             System.out.println("Erreur lors de la suppression de la colonne : " + e.getMessage());
         }
         System.out.println();
+
+
 
         // Affichage de la table après les suppressions
         System.out.println("Table après les suppressions :");
