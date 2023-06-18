@@ -30,6 +30,25 @@ public class Column {
     }
 
     /**
+     * Retourne la liste des valeurs de la colonne.
+     *
+     * @return la liste des valeurs de la colonne
+     */
+    public ArrayList<Object> getValues() {
+        return values;
+    }
+
+    /**
+     * Retourne la valeur à l'index spécifié dans la colonne.
+     *
+     * @param index l'index de la valeur à récupérer
+     * @return la valeur à l'index spécifié dans la colonne
+     */
+    public Object getValue(int index) {
+        return values.get(index);
+    }
+
+    /**
      * Ajoute une valeur à la colonne.
      *
      * @param value la valeur à ajouter
@@ -67,30 +86,24 @@ public class Column {
     }
 
     /**
+     * Supprime la valeur à l'index spécifié de la colonne.
+     *
+     * @param index L'index de la valeur à supprimer.
+     * @throws IndexOutOfBoundsException Si l'index est en dehors des limites de la colonne.
+     */
+    public void removeValue(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= values.size()) {
+            throw new IndexOutOfBoundsException("L'index est en dehors des limites de la colonne.");
+        }
+        values.remove(index);
+    }
+
+    /**
      * Retourne le nombre de valeurs dans la colonne.
      *
      * @return le nombre de valeurs dans la colonne
      */
     public int size() {
         return getValues().size();
-    }
-
-    /**
-     * Retourne la liste des valeurs de la colonne.
-     *
-     * @return la liste des valeurs de la colonne
-     */
-    public ArrayList<Object> getValues() {
-        return values;
-    }
-
-    /**
-     * Retourne la valeur à l'index spécifié dans la colonne.
-     *
-     * @param index l'index de la valeur à récupérer
-     * @return la valeur à l'index spécifié dans la colonne
-     */
-    public Object getValue(int index) {
-        return values.get(index);
     }
 }

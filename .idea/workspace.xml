@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Column.java" afterDir="false" />
+    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="feat: Ajout de la méthode addValues à la classe Column">
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,11 +85,23 @@
       <option name="presentableId" value="Default" />
       <updated>1686997433225</updated>
       <workItem from="1686997434759" duration="23370000" />
-      <workItem from="1687102986033" duration="979000" />
+      <workItem from="1687102986033" duration="1384000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Ajout de la méthode addValues à la classe Column">
+      <created>1687105248533</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687105248533</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Ajout de la méthode addValues à la classe Column" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Ajout de la méthode addValues à la classe Column" />
   </component>
 </project>

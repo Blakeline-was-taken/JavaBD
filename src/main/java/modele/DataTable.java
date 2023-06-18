@@ -190,6 +190,52 @@ public class DataTable {
     }
 
     /**
+     * Supprime la colonne à l'index spécifié de la table de données.
+     *
+     * @param index L'index de la colonne à supprimer.
+     * @throws IndexOutOfBoundsException Si l'index est en dehors des limites de la table de données.
+     */
+    public void removeColumn(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= columns.size()) {
+            throw new IndexOutOfBoundsException("L'index est en dehors des limites de la table de données.");
+        }
+        columnNames.remove(index);
+        columns.remove(index);
+    }
+
+    /**
+     * Supprime une colonne de la table de données.
+     *
+     * @param columnName Le nom de la colonne à supprimer.
+     * @throws IllegalArgumentException Si la colonne spécifiée n'existe pas.
+     */
+    public void removeColumn(String columnName) throws IllegalArgumentException {
+        int columnIndex = columnNames.indexOf(columnName);
+        if (columnIndex == -1) {
+            throw new IllegalArgumentException("La colonne spécifiée n'existe pas.");
+        }
+        columnNames.remove(columnIndex);
+        columns.remove(columnIndex);
+    }
+
+    /**
+     * Supprime une ligne de la table de données.
+     *
+     * @param rowIndex L'index de la ligne à supprimer.
+     * @throws IllegalArgumentException Si l'index de ligne spécifié est invalide.
+     */
+    public void removeRow(int rowIndex) throws IllegalArgumentException {
+        if (rowIndex < 0 || rowIndex >= getNumberOfRows()) {
+            throw new IllegalArgumentException("L'index de ligne spécifié est invalide.");
+        }
+        for (Column column : columns) {
+            if (column.size() >= rowIndex) {
+                column.removeValue(rowIndex);
+            }
+        }
+    }
+
+    /**
      * Affiche la table de données dans la console.
      */
     public void printTable() {
