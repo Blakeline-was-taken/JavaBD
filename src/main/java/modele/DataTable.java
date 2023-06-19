@@ -1,12 +1,13 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
  * La classe DataTable représente une table de données avec des colonnes et des lignes.
  */
-public class DataTable {
+public class DataTable implements Serializable {
     private String name; // Le nom de la table
     private ArrayList<String> columnNames; // La liste des noms de colonnes
     private ArrayList<Column> columns; // Les colonnes de la table

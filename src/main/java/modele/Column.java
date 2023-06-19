@@ -1,12 +1,13 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * La classe Column représente une colonne de données dans une DataTable.
  * Elle est caractérisée par un type de données et une liste de valeurs.
  */
-public class Column {
+public class Column implements Serializable {
     private Class<?> type; // Le type de données de la colonne
     private ArrayList<Object> values; // La liste des valeurs de la colonne
 

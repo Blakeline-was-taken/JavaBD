@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="test: Ajout du test de la méthode deleteCell">
+    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="feat: Ajout de la méthode setCell pour la classe DataTable">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controleur/MainOptionsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/outils/ReaderWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vue/HBoxRoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxRoot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MainApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +43,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "20",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -44,7 +52,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.MainApplication">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modele.Client" />
       <module name="JavaBD" />
@@ -73,8 +81,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.MainApplication" />
+        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -87,7 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1686997433225</updated>
       <workItem from="1686997434759" duration="23370000" />
-      <workItem from="1687102986033" duration="7412000" />
+      <workItem from="1687102986033" duration="12968000" />
+      <workItem from="1687156155882" duration="2186000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Ajout de la méthode addValues à la classe Column">
       <created>1687105248533</created>
@@ -131,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687109710248</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: Ajout de la méthode setCell pour la classe DataTable">
+      <created>1687112763682</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687112763682</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +160,7 @@
     <MESSAGE value="feat: Ajout de la méthode deleteCell permettant de supprimer une cellule de la table en particulier" />
     <MESSAGE value="fix: Correction de la méthode deleteCell" />
     <MESSAGE value="test: Ajout du test de la méthode deleteCell" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: Ajout du test de la méthode deleteCell" />
+    <MESSAGE value="feat: Ajout de la méthode setCell pour la classe DataTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Ajout de la méthode setCell pour la classe DataTable" />
   </component>
 </project>
