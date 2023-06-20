@@ -4,5 +4,8 @@ module javabd {
 
 
     opens vue to javafx.fxml;
+    exports modele;
     exports vue;
+    exports controleur;
+    exports outils;
 }

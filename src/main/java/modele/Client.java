@@ -1,10 +1,16 @@
 package modele;
 
+import outils.ReaderWriter;
+
+import java.io.File;
 import java.util.TreeSet;
 
 public class Client {
     public static void main(String[] args) {
-        testRemove();
+        DataTable employees = generateEmployees();
+        File saveFile = new File("saved_data"+ File.separator + "employees.ser");
+        ReaderWriter.write(saveFile, employees);
+        employees.printTable();
     }
 
     public static void testSelect(){
@@ -12,13 +18,13 @@ public class Client {
         employees.printTable();
         System.out.println();
 
-        // Test 1: Sélection de toutes les colonnes sans condition
+        // Test 1 : Sélection de toutes les colonnes sans condition
         DataTable result1 = employees.select(new TreeSet<>());
         System.out.println("Test 1: Sélection de toutes les colonnes sans condition");
         result1.printTable();
         System.out.println();
 
-        // Test 2: Sélection des colonnes "ID", "First Name" et "Email" sans condition
+        // Test 2 : Sélection des colonnes "ID", "First Name" et "Email" sans condition
         TreeSet<String> fields2 = new TreeSet<>();
         fields2.add("ID");
         fields2.add("First Name");
@@ -28,7 +34,7 @@ public class Client {
         result2.printTable();
         System.out.println();
 
-        // Test 3: Sélection des colonnes "ID" et "Last Name" avec la condition "Gender = 'Female'"
+        // Test 3 : Sélection des colonnes "ID" et "Last Name" avec la condition "Gender = 'Female'"
         TreeSet<String> fields3 = new TreeSet<>();
         fields3.add("ID");
         fields3.add("Last Name");
@@ -38,14 +44,14 @@ public class Client {
         result3.printTable();
         System.out.println();
 
-        // Test 4: Sélection de toutes les colonnes avec la condition "Salary >= 5000.00"
+        // Test 4 : Sélection de toutes les colonnes avec la condition "Salary >= 5000.00"
         Condition condition4 = new ValueCondition("Salary", ">=", 5000.00);
         DataTable result4 = employees.select(new TreeSet<>(), condition4);
         System.out.println("Test 4: Sélection de toutes les colonnes avec la condition \"Salary >= 5000.00\"");
         result4.printTable();
         System.out.println();
 
-        // Test 5: Sélection des colonnes "First Name" et "Last Name" avec la condition "Age < 30" et "Has Raise = true"
+        // Test 5 : Sélection des colonnes "First Name" et "Last Name" avec la condition "Age < 30" et "Has Raise = true"
         TreeSet<String> fields5 = new TreeSet<>();
         fields5.add("First Name");
         fields5.add("Last Name");
@@ -56,7 +62,7 @@ public class Client {
         result5.printTable();
         System.out.println();
 
-        // Test 6: Sélection de la colonne "*" avec la condition "Age = ID"
+        // Test 6 : Sélection de la colonne "*" avec la condition "Age = ID"
         TreeSet<String> fields6 = new TreeSet<>();
         fields6.add("*");
         Condition condition6 = new ColumnCondition("Age", "=", "ID");

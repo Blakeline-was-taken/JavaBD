@@ -317,6 +317,14 @@ public class DataTable implements Serializable {
         removeCell(columnIndex, rowIndex);
     }
 
+    public DataTable copy(){
+        ArrayList<Column> copyColumns = new ArrayList<>();
+        for (Column col : columns){
+            copyColumns.add(new Column(col.getType(), col.getValues()));
+        }
+        return new DataTable(name, columnNames, copyColumns);
+    }
+
     /**
      * Affiche la table de données dans la console.
      */
@@ -446,7 +454,7 @@ public class DataTable implements Serializable {
             }
         }
 
-        return new DataTable(name + "_selected", resultColumnNames, resultColumns);
+        return new DataTable(name, resultColumnNames, resultColumns);
     }
 
     /**

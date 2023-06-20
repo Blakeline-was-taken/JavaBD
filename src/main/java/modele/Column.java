@@ -21,6 +21,14 @@ public class Column implements Serializable {
         this.values = new ArrayList<>();
     }
 
+    public Column(Class<?> type, ArrayList<Object> values){
+        this.type = type;
+        this.values = new ArrayList<>();
+        for (Object val : values){
+            addValue(val);
+        }
+    }
+
     /**
      * Retourne le type de données de la colonne.
      *
