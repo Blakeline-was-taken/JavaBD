@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="feat: Ajout d'une première implémentation de la vue">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="fix: Correction de la méthode copy() de DataTable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/MainOptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/MainOptionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Column.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/HBoxMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/HBoxMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxRoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +62,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.MainApplication">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="modele.Client" />
       <module name="JavaBD" />
@@ -88,8 +91,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.MainApplication" />
+        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +110,7 @@
       <workItem from="1687167174132" duration="7941000" />
       <workItem from="1687186776127" duration="11999000" />
       <workItem from="1687275500760" duration="795000" />
-      <workItem from="1687332012742" duration="844000" />
+      <workItem from="1687332012742" duration="4815000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Ajout de la méthode addValues à la classe Column">
       <created>1687105248533</created>
@@ -158,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687112763682</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix: Correction de la méthode copy() de DataTable">
+      <created>1687333142916</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687333142916</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,15 @@
     <MESSAGE value="test: Ajout du test de la méthode deleteCell" />
     <MESSAGE value="feat: Ajout de la méthode setCell pour la classe DataTable" />
     <MESSAGE value="feat: Ajout d'une première implémentation de la vue" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Ajout d'une première implémentation de la vue" />
+    <MESSAGE value="fix: Correction de la méthode copy() de DataTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Correction de la méthode copy() de DataTable" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="table.columns.get(3).type" />
+        <watch expression="table.columns.get(3).type" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

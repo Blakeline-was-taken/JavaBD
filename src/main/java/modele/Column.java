@@ -64,7 +64,7 @@ public class Column implements Serializable {
      * @throws IllegalArgumentException si le type de valeur est invalide pour la colonne
      */
     public void addValue(Object value) throws IllegalArgumentException {
-        if (!type.isInstance(value)) {
+        if (!type.isInstance(value) && value != null) {
             throw new IllegalArgumentException("Type de valeur invalide. Attendu : " + type.getSimpleName());
         }
         values.add(value);

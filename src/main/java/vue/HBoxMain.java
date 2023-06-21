@@ -7,8 +7,6 @@ import javafx.scene.layout.HBox;
 
 import modele.DataTable;
 import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.TreeSet;
 
 public class HBoxMain extends HBox {
     public static VBoxTable vBoxTable;
@@ -17,12 +15,12 @@ public class HBoxMain extends HBox {
     public static DataTable currentTable;
 
     public HBoxMain(){
-        VBoxOptions options = new VBoxOptions();
+        VBoxOptions vBoxOptions = new VBoxOptions();
         Separator separator = new Separator(Orientation.VERTICAL);
         separator.setPadding(new Insets(10, 0, 10, 0));
         currentTable = VBoxRoot.tables.get(0);
         vBoxTable = new VBoxTable(currentTable.copy());
-        getChildren().addAll(options, separator, vBoxTable);
+        getChildren().addAll(vBoxOptions, separator, vBoxTable);
         setSpacing(10);
     }
 
@@ -40,15 +38,15 @@ public class HBoxMain extends HBox {
 
     public static void undo(){
         future.add(currentTable.copy());
-        currentTable = history.getFirst();
-        history.removeFirst();
+        currentTable = history.getLast();
+        history.removeLast();
         updateVBoxTable();
     }
 
     public static void redo(){
         history.add(currentTable.copy());
-        currentTable = future.getFirst();
-        future.removeFirst();
+        currentTable = future.getLast();
+        future.removeLast();
         updateVBoxTable();
     }
 }

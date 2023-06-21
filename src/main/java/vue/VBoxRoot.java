@@ -61,8 +61,8 @@ public class VBoxRoot extends VBox {
             }
 
             menuBar.getMenus().addAll(menuActions, menuTables);
-            HBoxMain hBoxRoot = new HBoxMain();
-            getChildren().addAll(menuBar, hBoxRoot);
+            HBoxMain hBoxMain = new HBoxMain();
+            getChildren().addAll(menuBar, hBoxMain);
 
         } else {
             // Le dossier de sauvegarde n'existe pas ou ne contient aucune table

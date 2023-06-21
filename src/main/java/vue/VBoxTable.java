@@ -2,6 +2,7 @@ package vue;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 import modele.Column;
 import modele.DataTable;
 import modele.Date;
+
+import java.util.Objects;
 
 public class VBoxTable extends VBox {
 
@@ -46,7 +49,7 @@ public class VBoxTable extends VBox {
             if (event.getClickCount() == 1) {
                 try {
                     // Récupérer la cellule sur laquelle le clic a été effectué
-                    TablePosition cell = tableView.getSelectionModel().getSelectedCells().get(0);
+                    TablePosition<?, ?> cell = tableView.getSelectionModel().getSelectedCells().get(0);
 
                     // Récupérer la valeur de la cellule
                     Object value = tableView.getItems().get(cell.getRow())[cell.getColumn()];
@@ -90,7 +93,7 @@ public class VBoxTable extends VBox {
                             }
                             months.getItems().add(month);
                         }
-                        newValueField = new HBox(new Label("Day :"), days, new Label("Month :"), months, new Label("Year :"), new TextField());
+                        newValueField = new HBox(days, new Label(" / "), months, new Label(" / "), new TextField());
                     }
 
                     Button cancelButton = new Button("Cancel");
@@ -135,16 +138,29 @@ public class VBoxTable extends VBox {
                                         column.setValue(cell.getRow(), null);
                                     }
                                 } else {
-                                    ComboBox<String> days = (ComboBox<String>) newValueField.getChildren().get(1);
-                                    String day = days.getSelectionModel().getSelectedItem();
-                                    ComboBox<String> months = (ComboBox<String>) newValueField.getChildren().get(3);
-                                    String month = months.getSelectionModel().getSelectedItem();
-                                    TextField year = (TextField) newValueField.getChildren().get(5);
-                                    if (day != null && month != null && year.getText().length() > 0) {
+                                    ComboBox<String> days = null;
+                                    ComboBox<String> months;
+                                    TextField year = null;
+                                    String day = null;
+                                    String month = null;
+
+                                    for (Node node : newValueField.getChildren()) {
+                                        if (node instanceof ComboBox) {
+                                            ComboBox<String> comboBox = (ComboBox<String>) node;
+                                            if (days == null) {
+                                                days = comboBox;
+                                                day = days.getSelectionModel().getSelectedItem();
+                                            } else {
+                                                months = comboBox;
+                                                month = months.getSelectionModel().getSelectedItem();
+                                            }
+                                        } else if (node instanceof TextField) {
+                                            year = (TextField) node;
+                                        }
+                                    }
+                                    if (day != null && month != null && Objects.requireNonNull(year).getText().length() > 0) {
                                         Date date = new Date(
-                                                Integer.parseInt(day),
-                                                Integer.parseInt(month),
-                                                Integer.parseInt(year.getText())
+                                            Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year.getText())
                                         );
                                         if (date.isValid()){
                                             column.setValue(cell.getRow(), date);

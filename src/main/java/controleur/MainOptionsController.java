@@ -10,22 +10,21 @@ public class MainOptionsController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        switch (btn.getText()){
-            case "◀": {
-                if (HBoxMain.history.size() > 0){
+        switch (btn.getText()) {
+            case "◀" -> {
+                if (HBoxMain.history.size() > 0) {
                     HBoxMain.undo();
                 }
             }
-            case "▶": {
-                if (HBoxMain.future.size() > 0){
+            case "▶" -> {
+                if (HBoxMain.future.size() > 0) {
                     HBoxMain.redo();
                 }
             }
-            case "💾": {
+            case "💾" -> {
                 // TODO: Sauvegarde
-                return;
             }
-            case "SELECT": {
+            case "SELECT" -> {
                 // TODO: Select
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Pop-up");
@@ -33,12 +32,8 @@ public class MainOptionsController implements EventHandler<ActionEvent> {
                 alert.setContentText("Hello World !");
                 alert.showAndWait();
             }
-            case "JOIN": {
+            case "JOIN" -> {
                 // TODO: Join
-                return;
-            }
-            default: {
-                return;
             }
         }
     }
