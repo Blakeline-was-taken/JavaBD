@@ -322,7 +322,7 @@ public class DataTable implements Serializable {
         for (Column col : columns){
             copyColumns.add(new Column(col.getType(), col.getValues()));
         }
-        return new DataTable(name, columnNames, copyColumns);
+        return new DataTable(name, new ArrayList<>(columnNames), copyColumns);
     }
 
     /**
