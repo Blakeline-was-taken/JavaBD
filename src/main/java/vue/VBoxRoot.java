@@ -22,43 +22,7 @@ public class VBoxRoot extends VBox {
     public static final File dossierSauvegarde = new File("saved_data");
 
     public VBoxRoot(){
-        if (dossierSauvegarde.exists() && dossierSauvegarde.listFiles() != null) {
-            // Des tables existent déjà
-            MenuBar menuBar = new MenuBar();
-
-            Menu menuActions = new Menu("☰");
-            MenuItem itemNouveau = new MenuItem("➕ New Table");
-            itemNouveau.getStyleClass().add("button-add");
-            MenuItem itemSupprimer = new MenuItem("➖ Delete Table");
-            itemSupprimer.getStyleClass().add("button-rem");
-            MenuItem itemEnregistrer = new MenuItem("💾 Save Table");
-            MenuItem itemQuitter = new MenuItem("❌ Quit");
-
-            itemNouveau.setOnAction(optionsController);
-            itemSupprimer.setOnAction(optionsController);
-            itemEnregistrer.setOnAction(optionsController);
-            itemQuitter.setOnAction(optionsController);
-
-            menuActions.getItems().addAll(itemNouveau, itemSupprimer, itemEnregistrer, new SeparatorMenuItem(), itemQuitter);
-
-            menuTables = new Menu("TABLES");
-            for (File fichier : Objects.requireNonNull(dossierSauvegarde.listFiles())) {
-                if (fichier.isFile() && fichier.getName().endsWith(".ser")) {
-                    DataTable table = (DataTable) ReaderWriter.read(fichier);
-                    MenuItem itemTable = new MenuItem("▶ " + table.getName());
-                    // Indice de la table à laquelle il fait référence.
-                    itemTable.setUserData(tables.size());
-                    itemTable.setOnAction(optionsController);
-                    tables.add(table);
-                    menuTables.getItems().add(itemTable);
-                }
-            }
-
-            menuBar.getMenus().addAll(menuActions, menuTables);
-            HBoxMain hBoxMain = new HBoxMain();
-            getChildren().addAll(menuBar, hBoxMain);
-
-        } else {
+        if (!dossierSauvegarde.exists() || Objects.requireNonNull(dossierSauvegarde.listFiles()).length == 0) {
             // Le dossier de sauvegarde n'existe pas ou ne contient aucune table
             if (!dossierSauvegarde.exists()){
                 boolean success = dossierSauvegarde.mkdir();
@@ -67,6 +31,42 @@ public class VBoxRoot extends VBox {
                     System.exit(1);
                 }
             }
+            tables.add(new DataTable("New Table"));
+        } else {
+            for (File fichier : Objects.requireNonNull(dossierSauvegarde.listFiles())) {
+                if (fichier.isFile() && fichier.getName().endsWith(".ser")) {
+                    DataTable table = (DataTable) ReaderWriter.read(fichier);
+                    tables.add(table);
+                }
+            }
         }
+        MenuBar menuBar = new MenuBar();
+
+        Menu menuActions = new Menu("☰");
+        MenuItem itemNouveau = new MenuItem("➕ New Table");
+        itemNouveau.getStyleClass().add("button-add");
+        MenuItem itemSupprimer = new MenuItem("➖ Delete Table");
+        itemSupprimer.getStyleClass().add("button-rem");
+        MenuItem itemEnregistrer = new MenuItem("💾 Save Table");
+        MenuItem itemQuitter = new MenuItem("❌ Quit");
+
+        itemNouveau.setOnAction(optionsController);
+        itemSupprimer.setOnAction(optionsController);
+        itemEnregistrer.setOnAction(optionsController);
+        itemQuitter.setOnAction(optionsController);
+
+        menuActions.getItems().addAll(itemNouveau, itemSupprimer, itemEnregistrer, new SeparatorMenuItem(), itemQuitter);
+
+        menuTables = new Menu("TABLES");
+        for (DataTable table : tables) {
+            MenuItem itemTable = new MenuItem("▶ " + table.getName());
+            itemTable.setUserData(tables.size());
+            itemTable.setOnAction(optionsController);
+            menuTables.getItems().add(itemTable);
+        }
+
+        menuBar.getMenus().addAll(menuActions, menuTables);
+        HBoxMain hBoxMain = new HBoxMain();
+        getChildren().addAll(menuBar, hBoxMain);
     }
 }
