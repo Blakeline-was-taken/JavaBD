@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="fix: Création d'une table vierge en cas de lancement sans sauvegarde">
+    <list default="true" id="aaa5a914-8cae-4f92-89c0-60114e2ceb9e" name="Changes" comment="docs: Ajout de la documentation du code">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTableConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTableConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/outils/VisualObjectInitialiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/outils/VisualObjectInitialiser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ColumnGridPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ColumnGridPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/DataTableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/DataTableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/CellController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/CellController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/OptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/OptionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controleur/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controleur/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Column.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/DataTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/HBoxMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/HBoxMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +143,7 @@
       <workItem from="1687545647530" duration="16000" />
       <workItem from="1687597066258" duration="6273000" />
       <workItem from="1687603390127" duration="3942000" />
-      <workItem from="1687694965612" duration="15027000" />
+      <workItem from="1687694965612" duration="15764000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Ajout de la méthode addValues à la classe Column">
       <created>1687105248533</created>
@@ -227,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687715094699</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="docs: Ajout de la documentation du code">
+      <option name="closed" value="true" />
+      <created>1687716712731</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687716712731</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +251,8 @@
     <MESSAGE value="fix: Correction de la première version de la vue" />
     <MESSAGE value="feat: Ajout de la version complète de la vue" />
     <MESSAGE value="fix: Création d'une table vierge en cas de lancement sans sauvegarde" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Création d'une table vierge en cas de lancement sans sauvegarde" />
+    <MESSAGE value="docs: Ajout de la documentation du code" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: Ajout de la documentation du code" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

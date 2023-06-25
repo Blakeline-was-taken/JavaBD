@@ -19,11 +19,34 @@ import java.util.Objects;
  */
 public class VBoxRoot extends VBox {
 
+    /**
+     * Le contrôleur des options de l'application.
+     */
     public static OptionsController optionsController = new OptionsController();
+
+    /**
+     * Le contrôleur des tables de l'application.
+     */
     public static TableController tableController = new TableController();
+
+    /**
+     * Le contrôleur des cellules de la table.
+     */
     public static CellController cellController = new CellController();
+
+    /**
+     * La liste des tables de données de l'application.
+     */
     public static ArrayList<DataTable> tables = new ArrayList<>();
+
+    /**
+     * Le menu des tables de l'application.
+     */
     public static Menu menuTables;
+
+    /**
+     * Le dossier de sauvegarde des tables.
+     */
     public static final File dossierSauvegarde = new File("saved_data");
 
     /**

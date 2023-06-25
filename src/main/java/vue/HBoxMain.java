@@ -14,9 +14,24 @@ import java.util.ArrayDeque;
  */
 public class HBoxMain extends HBox {
 
+    /**
+     * La vue de table principale.
+     */
     public static VBoxTable vBoxTable;
+
+    /**
+     * L'historique des tables précédentes.
+     */
     public static ArrayDeque<DataTable> history = new ArrayDeque<>();
+
+    /**
+     * L'historique des tables suivantes (annulées puis rétablies).
+     */
     public static ArrayDeque<DataTable> future = new ArrayDeque<>();
+
+    /**
+     * La table de données courante.
+     */
     public static DataTable currentTable;
 
     /**

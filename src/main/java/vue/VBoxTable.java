@@ -11,7 +11,14 @@ import modele.DataTable;
  */
 public class VBoxTable extends VBox {
 
+    /**
+     * La vue tabulaire de la table.
+     */
     public static DataTableView tableView;
+
+    /**
+     * La table de données à afficher.
+     */
     public static DataTable table;
 
     /**

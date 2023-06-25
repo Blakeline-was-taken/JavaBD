@@ -21,6 +21,12 @@ public class Column implements Serializable {
         this.values = new ArrayList<>();
     }
 
+    /**
+     * Constructeur de la classe Column avec une liste de valeurs initiale.
+     *
+     * @param type   le type de données de la colonne
+     * @param values la liste des valeurs initiale de la colonne
+     */
     public Column(Class<?> type, ArrayList<Object> values){
         this.type = type;
         this.values = new ArrayList<>();

@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Cette classe est le contrôleur des options de l'application.
- * Elle implémente l'interface EventHandler<ActionEvent> pour gérer les événements des boutons et des menus.
+ * Elle implémente l'interface EventHandler ActionEvent pour gérer les événements des boutons et des menus.
  */
 public class OptionsController implements EventHandler<ActionEvent> {
 
@@ -356,6 +356,11 @@ public class OptionsController implements EventHandler<ActionEvent> {
         }
     }
 
+    /**
+     * Sauvegarde la table actuelle avec un nom spécifié par l'utilisateur.
+     * Vérifie si un fichier de sauvegarde existe déjà et propose de l'écraser.
+     * Ajoute la table sauvegardée au menu des tables.
+     */
     public static void saveTable(){
         String currentName = VBoxTable.table.getName();
         File saveFile = new File("saved_data"+ File.separator + currentName.toLowerCase() + ".ser");

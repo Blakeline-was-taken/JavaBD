@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /**
  * Cette classe est le contrôleur des cellules de la table.
- * Elle implémente l'interface EventHandler<MouseEvent> pour gérer les événements de souris.
+ * Elle implémente l'interface EventHandler MouseEvent pour gérer les événements de souris.
  */
 public class CellController implements EventHandler<MouseEvent> {
 

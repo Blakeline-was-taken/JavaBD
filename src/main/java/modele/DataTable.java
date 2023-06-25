@@ -316,6 +316,11 @@ public class DataTable implements Serializable {
         removeCell(columnIndex, rowIndex);
     }
 
+    /**
+     * Crée une copie de la table de données.
+     *
+     * @return Une nouvelle instance de DataTable avec les mêmes colonnes et les mêmes données.
+     */
     public DataTable copy(){
         ArrayList<Column> copyColumns = new ArrayList<>();
         for (Column col : columns){

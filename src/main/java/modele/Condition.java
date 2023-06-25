@@ -8,9 +8,18 @@ import java.util.ArrayList;
  */
 public abstract class Condition {
 
-    protected String columnName; // Le nom de la colonne sur laquelle s'applique la condition
-    protected String operator; // L'opérateur de comparaison utilisé dans la condition
-    protected Object value; // La valeur avec laquelle comparer les données de la colonne
+    /**
+     * Le nom de la colonne sur laquelle s'applique la condition
+     * */
+    protected String columnName;
+    /**
+     * L'opérateur de comparaison utilisé dans la condition
+     * */
+    protected String operator;
+    /**
+     * La valeur avec laquelle comparer les données de la colonne
+     * */
+    protected Object value;
 
     /**
      * Constructeur de la classe Condition.

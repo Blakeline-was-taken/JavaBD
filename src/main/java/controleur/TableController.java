@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Cette classe est le contrôleur de la table de données.
- * Elle implémente l'interface EventHandler<ActionEvent> pour gérer les événements des boutons.
+ * Elle implémente l'interface EventHandler ActionEvent pour gérer les événements des boutons.
  */
 public class TableController implements EventHandler<ActionEvent>, DataTableConstants {
 
