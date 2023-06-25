@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * Elle est caractérisée par un type de données et une liste de valeurs.
  */
 public class Column implements Serializable {
-    private Class<?> type; // Le type de données de la colonne
-    private ArrayList<Object> values; // La liste des valeurs de la colonne
+    private final Class<?> type; // Le type de données de la colonne
+    private final ArrayList<Object> values; // La liste des valeurs de la colonne
 
     /**
      * Constructeur de la classe Column.
@@ -123,6 +123,13 @@ public class Column implements Serializable {
             throw new IndexOutOfBoundsException("L'index est en dehors des limites de la colonne.");
         }
         values.remove(index);
+    }
+
+    /**
+     * Supprime toutes les valeurs de la colonne, la vidant complètement.
+     */
+    public void clear(){
+        values.clear();
     }
 
     /**

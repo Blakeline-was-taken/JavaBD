@@ -26,6 +26,15 @@ public abstract class Condition {
     }
 
     /**
+     * Retourne une représentation sous forme de chaîne de caractères de l'objet Condition.
+     *
+     * @return une chaîne de caractères représentant la condition au format "columnName operator value"
+     */
+    public String toString(){
+        return this.columnName + " " + this.operator + " " + this.value;
+    }
+
+    /**
      * Évalue la condition pour une DataTable donnée et renvoie les indices des lignes qui satisfont la condition.
      *
      * @param table la DataTable à évaluer

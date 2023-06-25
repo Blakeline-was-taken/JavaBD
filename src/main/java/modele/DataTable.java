@@ -9,7 +9,7 @@ import java.util.TreeSet;
  */
 public class DataTable implements Serializable {
     private String name; // Le nom de la table
-    private ArrayList<String> columnNames; // La liste des noms de colonnes
+    private final ArrayList<String> columnNames; // La liste des noms de colonnes
     private ArrayList<Column> columns; // Les colonnes de la table
 
     /**
@@ -43,16 +43,6 @@ public class DataTable implements Serializable {
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * Retourne le nom de la colonne spécifiée.
-     *
-     * @param column La colonne dont on veut obtenir le nom.
-     * @return Le nom de la colonne spécifiée.
-     */
-    public String getColumnName(Column column) {
-        return columnNames.get(columns.indexOf(column));
     }
 
     /**
@@ -231,6 +221,15 @@ public class DataTable implements Serializable {
             throw new IllegalArgumentException("La colonne spécifiée n'existe pas.");
         }
         setCell(columnIndex, rowIndex, value);
+    }
+
+    /**
+     * Modifie le nom de la table de données.
+     *
+     * @param newName Le nouveau nom de la table.
+     */
+    public void setName(String newName){
+        name = newName;
     }
 
     /**
@@ -428,15 +427,15 @@ public class DataTable implements Serializable {
                 resultColumns.add(new Column(column.getType()));
             }
 
-            resultTable = new DataTable(name, columnNames, resultColumns);
-
             // Copier les lignes sélectionnées dans la nouvelle table
             for (Integer rowIndex : selectedRows) {
-                ArrayList<Object> row = getRow(rowIndex);
+                ArrayList<Object> row = resultTable.getRow(rowIndex);
                 for (int columnIndex = 0; columnIndex < row.size(); columnIndex++) {
-                    resultTable.getColumn(columnIndex).addValue(row.get(columnIndex));
+                    resultColumns.get(columnIndex).addValue(row.get(columnIndex));
                 }
             }
+
+            resultTable = new DataTable(name, columnNames, resultColumns);
         }
 
         ArrayList<String> resultColumnNames = new ArrayList<>(resultTable.getColumnNames());

@@ -1,16 +1,12 @@
 package modele;
 
-import outils.ReaderWriter;
-
-import java.io.File;
 import java.util.TreeSet;
 
 public class Client {
     public static void main(String[] args) {
-        DataTable employees = generateEmployees();
-        File saveFile = new File("saved_data"+ File.separator + "employees.ser");
-        ReaderWriter.write(saveFile, employees);
-        employees.printTable();
+        testSelect();
+        testRemove();
+        testJoin();
     }
 
     public static void testSelect(){
@@ -191,7 +187,7 @@ public class Client {
         table.printTable();
     }
 
-    public static DataTable generateEmployees(){
+    public static DataTable generateEmployees() {
         // Création de la table
         DataTable employees = new DataTable("Employees");
 
@@ -213,23 +209,22 @@ public class Client {
         employees.addColumn("Has Raise", Boolean.class);
 
         // Insertion des données dans la table
-        employees.insertRow(1, "John", "Doe", 30, "Male", "Manager", "Sales", 5000.00, new Date(1985, 5, 10), "+1 123-456-7890", "john.doe@example.com", "123 Main St", "New York", "USA", true);
-        employees.insertRow(2, "Jane", "Smith", 28, "Female", "Supervisor", "Marketing", 4500.00, new Date(1990, 9, 15), "+1 987-654-3210", "jane.smith@example.com", "456 Elm St", "Los Angeles", "USA", false);
-        employees.insertRow(3, "Michael", "Johnson", 35, "Male", "Manager", "Finance", 5500.00, new Date(1980, 2, 25), "+1 555-123-4567", "michael.johnson@example.com", "789 Oak St", "Chicago", "USA", true);
-        employees.insertRow(4, "Emily", "Brown", 32, "Female", "Analyst", "Finance", 4000.00, new Date(1988, 12, 5), "+1 222-333-4444", "emily.brown@example.com", "321 Pine St", "Houston", "USA", false);
-        employees.insertRow(5, "David", "Taylor", 29, "Male", "Engineer", "Engineering", 4800.00, new Date(1992, 7, 20), "+1 777-888-9999", "david.taylor@example.com", "654 Maple St", "San Francisco", "USA", true);
-        employees.insertRow(6, "Sarah", "Davis", 27, "Female", "Supervisor", "Marketing", 4300.00, new Date(1994, 4, 12), "+1 444-555-6666", "sarah.davis@example.com", "987 Walnut St", "Boston", "USA", false);
-        employees.insertRow(7, "Robert", "Anderson", 33, "Male", "Analyst", "Sales", 4100.00, new Date(1987, 8, 8), "+1 666-777-8888", "robert.anderson@example.com", "852 Birch St", "Seattle", "USA", true);
-        employees.insertRow(8, "Olivia", "Wilson", 31, "Female", "Engineer", "Engineering", 5200.00, new Date(1989, 6, 18), "+1 999-000-1111", "olivia.wilson@example.com", "753 Oak St", "Miami", "USA", false);
-        employees.insertRow(9, "James", "Martin", 36, "Male", "Manager", "Finance", 6000.00, new Date(1984, 3, 28), "+1 999-888-7777", "james.martin@example.com", "369 Cedar St", "Denver", "USA", true);
-        employees.insertRow(10, "Sophia", "Clark", 30, "Female", "Supervisor", "Sales", 4700.00, new Date(1991, 11, 7), "+1 333-444-5555", "sophia.clark@example.com", "246 Oak St", "Austin", "USA", false);
-        employees.insertRow(11, "Daniel", "Lewis", 34, "Male", "Analyst", "Finance", 4200.00, new Date(1986, 1, 14), "+1 777-222-3333", "daniel.lewis@example.com", "135 Elm St", "Phoenix", "USA", true);
-        employees.insertRow(12, "Ava", "Harris", 26, "Female", "Engineer", "Engineering", 4900.00, new Date(1995, 10, 2), "+1 111-222-3333", "ava.harris@example.com", "468 Pine St", "San Diego", "USA", false);
-        employees.insertRow(13, "Matthew", "Walker", 33, "Male", "Manager", "Sales", 5700.00, new Date(1987, 4, 16), "+1 555-999-1111", "matthew.walker@example.com", "987 Walnut St", "Orlando", "USA", true);
-        employees.insertRow(14, "Isabella", "Turner", 29, "Female", "Supervisor", "Marketing", 4400.00, new Date(1992, 8, 23), "+1 333-888-9999", "isabella.turner@example.com", "258 Maple St", "Atlanta", "USA", false);
-        employees.insertRow(15, "Andrew", "Adams", 15, "Male", "Analyst", "Finance", 4100.00, new Date(1980, 6, 11), "+1 888-111-2222", "andrew.adams@example.com", "753 Oak St", "Miami", "USA", true);
+        employees.insertRow(1, "John", "Doe", 30, "Male", "Manager", "Sales", 5000.00, new Date(10, 5, 1985), "+1 123-456-7890", "john.doe@example.com", "123 Main St", "New York", "USA", true);
+        employees.insertRow(2, "Jane", "Smith", 28, "Female", "Supervisor", "Marketing", 4500.00, new Date(15, 9, 1990), "+1 987-654-3210", "jane.smith@example.com", "456 Elm St", "Los Angeles", "USA", false);
+        employees.insertRow(3, "Michael", "Johnson", 35, "Male", "Manager", "Finance", 5500.00, new Date(25, 2, 1980), "+1 555-123-4567", "michael.johnson@example.com", "789 Oak St", "Chicago", "USA", true);
+        employees.insertRow(4, "Emily", "Brown", 32, "Female", "Analyst", "Finance", 4000.00, new Date(5, 12, 1988), "+1 222-333-4444", "emily.brown@example.com", "321 Pine St", "Houston", "USA", false);
+        employees.insertRow(5, "David", "Taylor", 29, "Male", "Engineer", "Engineering", 4800.00, new Date(20, 7, 1992), "+1 777-888-9999", "david.taylor@example.com", "654 Maple St", "San Francisco", "USA", true);
+        employees.insertRow(6, "Sarah", "Davis", 27, "Female", "Supervisor", "Marketing", 4300.00, new Date(12, 4, 1994), "+1 444-555-6666", "sarah.davis@example.com", "987 Walnut St", "Boston", "USA", false);
+        employees.insertRow(7, "Robert", "Anderson", 33, "Male", "Analyst", "Sales", 4100.00, new Date(8, 8, 1987), "+1 666-777-8888", "robert.anderson@example.com", "852 Birch St", "Seattle", "USA", true);
+        employees.insertRow(8, "Olivia", "Wilson", 31, "Female", "Engineer", "Engineering", 5200.00, new Date(18, 6, 1989), "+1 999-000-1111", "olivia.wilson@example.com", "753 Oak St", "Miami", "USA", false);
+        employees.insertRow(9, "James", "Martin", 36, "Male", "Manager", "Finance", 6000.00, new Date(28, 3, 1984), "+1 999-888-7777", "james.martin@example.com", "369 Cedar St", "Denver", "USA", true);
+        employees.insertRow(10, "Sophia", "Clark", 30, "Female", "Supervisor", "Sales", 4700.00, new Date(7, 11, 1991), "+1 333-444-5555", "sophia.clark@example.com", "246 Oak St", "Austin", "USA", false);
+        employees.insertRow(11, "Daniel", "Lewis", 34, "Male", "Analyst", "Finance", 4200.00, new Date(14, 1, 1986), "+1 777-222-3333", "daniel.lewis@example.com", "135 Elm St", "Phoenix", "USA", true);
+        employees.insertRow(12, "Ava", "Harris", 26, "Female", "Engineer", "Engineering", 4900.00, new Date(2, 10, 1995), "+1 111-222-3333", "ava.harris@example.com", "468 Pine St", "San Diego", "USA", false);
+        employees.insertRow(13, "Matthew", "Walker", 33, "Male", "Manager", "Sales", 5700.00, new Date(16, 4, 1987), "+1 555-999-1111", "matthew.walker@example.com", "987 Walnut St", "Orlando", "USA", true);
+        employees.insertRow(14, "Isabella", "Turner", 29, "Female", "Supervisor", "Marketing", 4400.00, new Date(23, 8, 1992), "+1 333-888-9999", "isabella.turner@example.com", "258 Maple St", "Atlanta", "USA", false);
+        employees.insertRow(15, "Andrew", "Adams", 15, "Male", "Analyst", "Finance", 4100.00, new Date(11, 6, 1980), "+1 888-111-2222", "andrew.adams@example.com", "753 Oak St", "Miami", "USA", true);
 
-        // Affichage de la table
         return employees;
     }
 }

@@ -1,0 +1,11 @@
+.button-add {
+    -fx-background-color: lightgreen;
+}
+
+.button-rem {
+    -fx-background-color: #ffa4a4;
+}
+
+.button-oth {
+    -fx-background-color: lightblue;
+}
