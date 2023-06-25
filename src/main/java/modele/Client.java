@@ -2,13 +2,28 @@ package modele;
 
 import java.util.TreeSet;
 
+/**
+ * La classe Client est une classe de test pour les fonctionnalités de la classe DataTable.
+ * Elle contient des méthodes de test pour les opérations de sélection, suppression et jointure de données.
+ */
 public class Client {
+
+    /**
+     * Méthode principale du programme.
+     * Appelle les méthodes de test pour la sélection, la suppression et la jointure de tables.
+     *
+     * @param args les arguments de la ligne de commande
+     */
     public static void main(String[] args) {
         testSelect();
         testRemove();
         testJoin();
     }
 
+    /**
+     * Méthode de test pour la sélection de lignes dans une table.
+     * Effectue plusieurs tests de sélection avec différentes conditions et colonnes.
+     */
     public static void testSelect(){
         DataTable employees = generateEmployees();
         employees.printTable();
@@ -67,6 +82,10 @@ public class Client {
         result6.printTable();
     }
 
+    /**
+     * Méthode de test pour la jointure de tables.
+     * Crée deux tables distinctes et effectue une jointure sur une colonne commune.
+     */
     public static void testJoin(){
         // Création de la première table
         DataTable table1 = new DataTable("Table1");
@@ -101,6 +120,10 @@ public class Client {
         table1.join(table2, "Ville", "Ville").printTable();
     }
 
+    /**
+     * Méthode de test pour la suppression de lignes et de colonnes dans une table.
+     * Effectue plusieurs tests de suppression de lignes, de colonnes et de cellules dans une table.
+     */
     public static void testRemove() {
         // Création de la table de données
         DataTable table = generateEmployees();
@@ -187,6 +210,11 @@ public class Client {
         table.printTable();
     }
 
+    /**
+     * Génère et retourne une table de données test d'employés.
+     *
+     * @return la table de données d'employés générée
+     */
     public static DataTable generateEmployees() {
         // Création de la table
         DataTable employees = new DataTable("Employees");

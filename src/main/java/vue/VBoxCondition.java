@@ -17,9 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * La classe VBoxCondition est une classe JavaFX qui représente une boîte verticale contenant des conditions.
+ * Elle permet d'ajouter, afficher et gérer les conditions appliquées à une DataTable.
+ */
 public class VBoxCondition extends VBox {
     private final ArrayList<Condition> conditions;
 
+    /**
+     * Constructeur de la classe VBoxCondition.
+     * Crée une boîte verticale contenant les conditions appliquées à une DataTable spécifiée.
+     *
+     * @param table La DataTable à laquelle les conditions sont appliquées.
+     */
     public VBoxCondition(DataTable table) {
         conditions = new ArrayList<>();
         GridPane gridPane = new GridPane();
@@ -27,12 +37,18 @@ public class VBoxCondition extends VBox {
         getChildren().add(gridPane);
     }
 
-    private GridPane gridPaneConditions(DataTable table, ArrayList<Condition> parConditions){
+    /**
+     * Méthode privée pour créer une grille de conditions à afficher dans la boîte verticale.
+     *
+     * @param table       La DataTable à laquelle les conditions sont appliquées.
+     * @param parConditions Les conditions à afficher.
+     * @return La grille de conditions.
+     */
+    private GridPane gridPaneConditions(DataTable table, ArrayList<Condition> parConditions) {
         GridPane toReturn = new GridPane();
         int rowIndex = 0;
-        for (Condition condition : parConditions){
+        for (Condition condition : parConditions) {
             Button removeCondition = new Button("➖");
-
             removeCondition.getStyleClass().add("button-rem");
             removeCondition.setOnAction(event -> {
                 parConditions.remove(condition);
@@ -47,11 +63,22 @@ public class VBoxCondition extends VBox {
         return toReturn;
     }
 
-    public ArrayList<Condition> getConditions(){
+    /**
+     * Méthode pour obtenir la liste des conditions.
+     *
+     * @return La liste des conditions.
+     */
+    public ArrayList<Condition> getConditions() {
         return conditions;
     }
-    
-    private Button addConditionButton(DataTable table){
+
+    /**
+     * Méthode privée pour créer le bouton d'ajout de condition.
+     *
+     * @param table La DataTable à laquelle les conditions sont appliquées.
+     * @return Le bouton d'ajout de condition.
+     */
+    private Button addConditionButton(DataTable table) {
         Button addCondition = new Button("➕ Add Condition");
 
         addCondition.getStyleClass().add("button-add");
@@ -79,7 +106,7 @@ public class VBoxCondition extends VBox {
 
             value.setOnAction(radioEvent -> {
                 lastField.getChildren().clear();
-                if (columnName.getSelectionModel().getSelectedItem() == null){
+                if (columnName.getSelectionModel().getSelectedItem() == null) {
                     lastField.getChildren().add(new TextField());
                 } else {
                     String name = columnName.getSelectionModel().getSelectedItem();
@@ -94,7 +121,7 @@ public class VBoxCondition extends VBox {
             });
 
             columnName.setOnAction(comboEvent -> {
-                if (conditionType.getSelectedToggle() == value){
+                if (conditionType.getSelectedToggle() == value) {
                     String name = columnName.getSelectionModel().getSelectedItem();
                     Class<?> type = table.getColumn(name).getType();
                     lastField.getChildren().removeAll(lastField.getChildren());
@@ -112,7 +139,7 @@ public class VBoxCondition extends VBox {
             addButton.setOnAction(subEvent -> {
                 String name = columnName.getSelectionModel().getSelectedItem();
                 String op = operator.getSelectionModel().getSelectedItem();
-                if (name == null){
+                if (name == null) {
                     Alert errorDialog = new Alert(Alert.AlertType.ERROR);
                     errorDialog.setTitle("Error");
                     errorDialog.setHeaderText("You must choose a column to apply the condition to.");
@@ -120,7 +147,7 @@ public class VBoxCondition extends VBox {
                     errorDialog.showAndWait();
                     return;
                 }
-                if (op == null){
+                if (op == null) {
                     Alert errorDialog = new Alert(Alert.AlertType.ERROR);
                     errorDialog.setTitle("Error");
                     errorDialog.setHeaderText("You must choose an operator for the condition.");
@@ -129,7 +156,7 @@ public class VBoxCondition extends VBox {
                     return;
                 }
                 Class<?> type = table.getColumn(name).getType();
-                if (conditionType.getSelectedToggle() == value){
+                if (conditionType.getSelectedToggle() == value) {
                     Object val;
                     try {
                         if (type.equals(Integer.class)) {
@@ -213,8 +240,8 @@ public class VBoxCondition extends VBox {
                     Class<?> otherType = table.getColumn(otherName).getType();
                     if (!type.equals(otherType) &&
                             !((type.equals(Integer.class) && otherType.equals(Double.class)) ||
-                              (type.equals(Double.class) && otherType.equals(Integer.class)))
-                    ){
+                                    (type.equals(Double.class) && otherType.equals(Integer.class)))
+                    ) {
                         Alert columnDialog = new Alert(Alert.AlertType.ERROR);
                         columnDialog.setTitle("Non-matching columns");
                         columnDialog.setHeaderText("The type of these columns do not match.");
@@ -242,7 +269,7 @@ public class VBoxCondition extends VBox {
             conditionStage.setScene(new Scene(conditionLayout));
             conditionStage.showAndWait();
         });
-        
+
         return addCondition;
     }
 }

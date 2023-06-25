@@ -23,7 +23,17 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Cette classe est le contrôleur des options de l'application.
+ * Elle implémente l'interface EventHandler<ActionEvent> pour gérer les événements des boutons et des menus.
+ */
 public class OptionsController implements EventHandler<ActionEvent> {
+
+    /**
+     * Cette méthode gère les événements déclenchés par les boutons et les menus.
+     *
+     * @param event l'événement déclenché
+     */
     @Override
     public void handle(ActionEvent event) {
         if (event.getSource() instanceof Button btn){

@@ -19,7 +19,17 @@ import vue.VBoxTable;
 
 import java.util.Objects;
 
+/**
+ * Cette classe est le contrôleur des cellules de la table.
+ * Elle implémente l'interface EventHandler<MouseEvent> pour gérer les événements de souris.
+ */
 public class CellController implements EventHandler<MouseEvent> {
+
+    /**
+     * Cette méthode gère les événements de souris pour les cellules de la table.
+     *
+     * @param mouseEvent l'événement de souris déclenché
+     */
     @Override
     public void handle(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 1) {
@@ -57,8 +67,8 @@ public class CellController implements EventHandler<MouseEvent> {
                 // Gérer l'événement du bouton Apply
                 applyButton.setOnAction(subEvent -> {
                     try {
-                        if (cell.getRow() >= column.size()){
-                            for (int i = column.size(); i <= cell.getRow(); i++){
+                        if (cell.getRow() >= column.size()) {
+                            for (int i = column.size(); i <= cell.getRow(); i++) {
                                 column.addValue(null);
                             }
                         }
@@ -115,7 +125,7 @@ public class CellController implements EventHandler<MouseEvent> {
                                 Date date = new Date(
                                         Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year.getText())
                                 );
-                                if (date.isValid()){
+                                if (date.isValid()) {
                                     column.setValue(cell.getRow(), date);
                                 } else {
                                     Alert dateDialog = new Alert(Alert.AlertType.ERROR);
@@ -152,7 +162,8 @@ public class CellController implements EventHandler<MouseEvent> {
                 editStage.setScene(new Scene(editLayout));
                 editStage.showAndWait();
 
-            } catch (IndexOutOfBoundsException ignored) {}
+            } catch (IndexOutOfBoundsException ignored) {
+            }
         }
     }
 }

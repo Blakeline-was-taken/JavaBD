@@ -7,21 +7,23 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/**
+ * La classe VBoxOptions est une classe JavaFX qui représente le conteneur VBox des options dans l'interface utilisateur.
+ * Elle contient des boutons pour la navigation, la sélection, l'ajout/suppression de colonnes et de lignes, ainsi que le bouton de jointure.
+ */
 public class VBoxOptions extends VBox {
 
-    private HBox centeredHBox(){
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER);
-        return hBox;
-    }
-
-    public VBoxOptions (){
+    /**
+     * Constructeur de la classe VBoxOptions.
+     * Initialise le conteneur VBox et ajoute les boutons correspondant aux différentes options.
+     */
+    public VBoxOptions() {
         setSpacing(10);
         setAlignment(Pos.CENTER);
 
         HBox navBoutons = centeredHBox();
         String[] textBoutons = {"◀", "▶", "💾"};
-        for (String textBouton : textBoutons){
+        for (String textBouton : textBoutons) {
             Button bouton = new Button(textBouton);
             bouton.setOnAction(VBoxRoot.optionsController);
             navBoutons.getChildren().add(bouton);
@@ -82,5 +84,16 @@ public class VBoxOptions extends VBox {
         join.setOnAction(VBoxRoot.optionsController);
         join.getStyleClass().add("button-oth");
         getChildren().add(join);
+    }
+
+    /**
+     * Crée un conteneur HBox centré.
+     *
+     * @return Le conteneur HBox centré.
+     */
+    private HBox centeredHBox() {
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        return hBox;
     }
 }

@@ -5,10 +5,21 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import modele.DataTable;
 
+/**
+ * La classe VBoxTable est une classe JavaFX qui représente le conteneur VBox d'une table dans l'interface utilisateur.
+ * Elle affiche les informations de la table, ainsi que la vue tabulaire de la table.
+ */
 public class VBoxTable extends VBox {
+
     public static DataTableView tableView;
     public static DataTable table;
 
+    /**
+     * Constructeur de la classe VBoxTable.
+     * Crée le conteneur VBox pour la table spécifiée.
+     *
+     * @param givenTable La table de données à afficher.
+     */
     public VBoxTable(DataTable givenTable) {
         table = givenTable;
 

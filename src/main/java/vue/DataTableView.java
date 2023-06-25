@@ -5,9 +5,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import modele.DataTable;
 
+/**
+ * La classe DataTableView est une classe JavaFX qui représente une vue tabulaire d'une DataTable.
+ * Elle affiche les données d'une DataTable dans un TableView.
+ */
 public class DataTableView extends TableView<Object[]> {
-    
-    public DataTableView(DataTable table){
+
+    /**
+     * Constructeur de la classe DataTableView.
+     * Crée une vue tabulaire d'une DataTable spécifiée et affiche les données dans un TableView.
+     *
+     * @param table La DataTable à afficher.
+     */
+    public DataTableView(DataTable table) {
         // Ajouter les colonnes au TableView
         for (int columnIndex = 0; columnIndex < table.getNumberOfColumns(); columnIndex++) {
             final int index = columnIndex;

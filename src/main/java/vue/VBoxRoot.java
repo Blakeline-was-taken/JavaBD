@@ -13,7 +13,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * La classe VBoxRoot est une classe JavaFX qui représente le conteneur VBox principal de l'application.
+ * Elle contient les contrôleurs, les données des tables, ainsi que les menus et les actions associées.
+ */
 public class VBoxRoot extends VBox {
+
     public static OptionsController optionsController = new OptionsController();
     public static TableController tableController = new TableController();
     public static CellController cellController = new CellController();
@@ -21,10 +26,14 @@ public class VBoxRoot extends VBox {
     public static Menu menuTables;
     public static final File dossierSauvegarde = new File("saved_data");
 
-    public VBoxRoot(){
+    /**
+     * Le constructeur de la classe VBoxRoot.
+     * Il initialise les contrôleurs, charge les données des tables et crée les menus.
+     */
+    public VBoxRoot() {
         if (!dossierSauvegarde.exists() || Objects.requireNonNull(dossierSauvegarde.listFiles()).length == 0) {
             // Le dossier de sauvegarde n'existe pas ou ne contient aucune table
-            if (!dossierSauvegarde.exists()){
+            if (!dossierSauvegarde.exists()) {
                 boolean success = dossierSauvegarde.mkdir();
                 if (!success) {
                     System.out.println("Impossible de créer le dossier.");
@@ -40,6 +49,7 @@ public class VBoxRoot extends VBox {
                 }
             }
         }
+
         MenuBar menuBar = new MenuBar();
 
         Menu menuActions = new Menu("☰");

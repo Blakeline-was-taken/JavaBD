@@ -24,7 +24,17 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Cette classe est le contrôleur de la table de données.
+ * Elle implémente l'interface EventHandler<ActionEvent> pour gérer les événements des boutons.
+ */
 public class TableController implements EventHandler<ActionEvent>, DataTableConstants {
+
+    /**
+     * Cette méthode gère les événements déclenchés par les boutons.
+     *
+     * @param actionEvent l'événement déclenché
+     */
     @Override
     public void handle(ActionEvent actionEvent) {
         Button btn = (Button) actionEvent.getSource();
@@ -375,6 +385,9 @@ public class TableController implements EventHandler<ActionEvent>, DataTableCons
         }
     }
 
+    /**
+     * Cette méthode permet de changer le nom de la table.
+     */
     public static void changeTableName(){
         DataTable table = VBoxTable.table;
 
